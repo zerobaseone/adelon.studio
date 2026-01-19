@@ -20,6 +20,6 @@ export default defineConfig({
         providerImportSource: "@mdx-js/react"
       })
     },
-    react()
-  ],
+    react()],
+    base: '/adelon.studio/',
 })

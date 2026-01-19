@@ -205,7 +205,7 @@ main {
 
 .prompt {
   color: var(--soft-yellow);
-  margin-top: 20px;
+  margin-top: 10px;
   font-weight: bold;
 }
 
