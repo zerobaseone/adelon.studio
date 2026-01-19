@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/adelon.studio">
+    <Router basename="/">
       <div className="container">
         <Header />
         <Routes>
