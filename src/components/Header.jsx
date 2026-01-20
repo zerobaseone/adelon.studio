@@ -9,6 +9,7 @@ function Header() {
         color: 'var(--soft-yellow)',
         textShadow: '3px 3px 0 var(--coral), 6px 6px 0 var(--tangerine), 0 0 20px var(--warm-orange)', /* last color is the glow */
         marginBottom: '0rem',
+        marginLeft: '0.5rem',
         animation: 'glitch 3s infinite'
       }}>
         adelon.studio

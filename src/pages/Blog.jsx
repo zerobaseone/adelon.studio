@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
 import TerminalWindow from '../components/TerminalWindow';
 
+
 const mdxComponents = {
   TerminalWindow
 };
@@ -35,7 +36,11 @@ function Blog() {
     <MDXProvider components={mdxComponents}>
       <main>
         <section className="content">
-          
+
+          <TerminalWindow title="⚠️ cognitohazard - blog ai policy">
+          If you're here, i'm assuming you want to hear from me and not <a href="https://youtu.be/LPZh9BOjkQs?si=b2c4NSz-tDHZ-SEo">several matrices</a>, so all posts are written by me with no LLM assistance.
+          </TerminalWindow>
+
           {posts.map((post) => (
             <article key={post.slug} className="blog-post">
               <div className="blog-title">{post.title}</div>
@@ -43,7 +48,7 @@ function Blog() {
               {post.excerpt && (
                 <div className="blog-preview">{post.excerpt}</div>
               )}
-              {/* for now, showing full content - mb add routing later */}
+              {/* TODO: showing full content -  add routing later? */}
               <div className="blog-full-content">
                 <post.Component />
               </div>

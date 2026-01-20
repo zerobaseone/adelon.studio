@@ -6,9 +6,8 @@ function Links() {
       <section className="content">
         
         <TerminalWindow title="links.txt">
-          <p className="prompt">&gt; cat social_links.txt</p>
           <ul>
-            <li><a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a> - my code and projects</li>
+            <li><a href="https://github.com/zerobaseone" target="_blank" rel="noopener noreferrer">GitHub</a> - my code and projects</li>
             <li><a href="#" target="_blank" rel="noopener noreferrer">[link1]</a> - description</li>
             <li><a href="#" target="_blank" rel="noopener noreferrer">[link2]</a> - description</li>
           </ul>

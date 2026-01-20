@@ -28,32 +28,7 @@ body {
   line-height: 1.6;
 }
 
-/* Scanline effect */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255, 158, 100, 0.02) 0px,
-    transparent 1px,
-    transparent 2px,
-    rgba(255, 158, 100, 0.02) 3px
-  );
-  pointer-events: none;
-  z-index: 1000;
-  animation: scanlines 8s linear infinite;
-}
-
-@keyframes scanlines {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(10px); }
-}
-
-/* Static gradient background */
+/* subtle static background */
 body::after {
   content: '';
   position: fixed;
@@ -77,6 +52,7 @@ body::after {
 /* Header */
 header {
   padding: 2rem 0;
+  margin-left: 0.5rem;
   margin-bottom: -1rem; /* this measurement is giving me trouble on mobile */
   animation: slideDown 0.8s ease-out;
 }
@@ -103,7 +79,7 @@ header {
   white-space: pre;
 }
 
-/* Navigation */
+/* Navigation - buttons */
 nav {
   border-top: none;
   border-bottom: none;
@@ -126,16 +102,17 @@ nav a {
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
-  transform: skewX(-10deg);
+  transform: skewX(-15deg);
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(255, 158, 100, 0.3);
   margin-right: 0;
+  border-radius: 8px; /* rounds corner of buttons */
 }
 
 nav a:hover {
-  transform: skewX(-10deg) translateY(-3px);
-  box-shadow: 0 5px 30px rgba(255, 158, 100, 0.5),
-              0 0 40px rgba(255, 153, 102, 0.4);
+  transform: skewX(-15deg) translateY(-3px);
+  box-shadow: 0 5px 30px rgba(255, 158, 100, 0.3),
+              0 0 20px rgba(255, 153, 102, 0.4);
   background: var(--peach);
   color: var(--dark-gray);  
 }
