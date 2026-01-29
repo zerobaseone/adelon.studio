@@ -1,16 +1,27 @@
-# React + Vite
+## adelon.studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This site is built with React + Vite and a custom CRT-adjacent aesthetic tuned for mobile-first browsing.
 
-Currently, two official plugins are available:
+### Mobile layout system
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All pages should treat mobile as the primary target and then scale up:
 
-## React Compiler
+- **Page shell**
+  - Wrap primary content in `main.page-shell` to constrain the width and add comfortable side padding on phones.
+  - Example: `return (<main className="page-shell">…</main>);`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Vertical layout**
+  - Use `section.stack` (or `stack-sm`) to create vertical flows with consistent gaps between blocks (terminals, cards, tool sections).
 
-## Expanding the ESLint configuration
+- **Header**
+  - The `Header` component uses `.site-logo` and `.site-subtitle` with `clamp()` font sizes so `adelon.studio` always fits on small phones.
+  - Navigation buttons automatically wrap and stretch to full-width on narrow screens.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Future tools / calculators**
+  - Start each tool page with:
+    - `main.page-shell` as the outer wrapper.
+    - A `section.stack` containing:
+      - One `TerminalWindow` for the narrative or instructions.
+      - A block for inputs (form controls).
+      - A block for results/output.
+  - Reuse the spacing and typography via CSS variables (e.g. `--space-md`, `--font-size-base`) rather than hard-coded values so new tools match the rest of the site and remain responsive by default.

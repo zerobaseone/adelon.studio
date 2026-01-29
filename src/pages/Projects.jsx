@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/react';
 import TerminalWindow from '../components/TerminalWindow';
 
 const mdxComponents = {
-  TerminalWindow
+  TerminalWindow,
 };
 
 function Projects() {
@@ -11,10 +11,10 @@ function Projects() {
 
   useEffect(() => {
     const modules = import.meta.glob('../projects/*.mdx', { eager: true });
-    
+
     const projectsData = Object.entries(modules).map(([path, module]) => {
       const filename = path.split('/').pop().replace('.mdx', '');
-      
+
       return {
         slug: module.frontmatter?.slug || filename,
         title: module.frontmatter?.title || 'Untitled Project',
@@ -26,15 +26,14 @@ function Projects() {
         Component: module.default,
       };
     });
-    
+
     setProjects(projectsData);
   }, []);
 
   return (
     <MDXProvider components={mdxComponents}>
-      <main>
-        <section className="content">
-
+      <main className="page-shell">
+        <section className="stack">
           <div className="project-grid">
             {projects.map((project) => (
               <div key={project.slug} className="project-card">
@@ -43,17 +42,17 @@ function Projects() {
                     <img src={project.image} alt={project.title} />
                   </div>
                 )}
-                
+
                 <div className="project-title">{project.title}</div>
-                
+
                 <div className="project-tech">
                   {project.tech.length > 0 && project.tech.join(' • ')}
                 </div>
-                
+
                 <div className="project-desc">
                   <project.Component />
                 </div>
-                
+
                 {(project.links.github || project.links.demo) && (
                   <div className="project-links">
                     {project.links.github && (
@@ -67,7 +66,6 @@ function Projects() {
               </div>
             ))}
           </div>
-
         </section>
       </main>
     </MDXProvider>

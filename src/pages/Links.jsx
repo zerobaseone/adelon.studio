@@ -2,9 +2,8 @@ import TerminalWindow from '../components/TerminalWindow';
 
 function Links() {
   return (
-    <main>
-      <section className="content">
-        
+    <main className="page-shell">
+      <section className="stack">
         <TerminalWindow title="links.txt">
           <ul>
             <li><a href="https://github.com/zerobaseone" target="_blank" rel="noopener noreferrer">GitHub</a> - my code and projects</li>
